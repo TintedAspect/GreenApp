@@ -1,0 +1,18 @@
+Abridged minutes for 29/10/2019
+
+Ethan:	We might want to match the minimalist style of the op.
+Lucas:	If we aim the app at the young adult demographic, we can justify a more minimalist "luxurious" UI, similar to Magnum ice cream and other products marketed to that		demographic.
+Ethan:	We should aim to work within languages we know.
+Ethan:	We can pull posts from their Facebook page, and from relevant pages.
+Sean:	The good thing about twitter feeds is that they have an API that can just be copied in.
+Sean:	(in regards to the map suggested project) I think most companies swapped to OpenMaps since Google Maps started charging for use.
+Lucas:	We could colour code relevant buildings in a map, so all the wholefood shops would be one colour, for example.
+Ethan:	We could also consider making a blog as our project.
+Lucas:	And add in easy page creation functionality for a user.
+		We could aim to create wireframe designs of the ideas discussed today, and any others thought of during the week, and review them next week if everybody could make it on time.
+Sean:	We could do a kickstarter style project for funding green projects.
+Ethan:	We could ask staff at the shop for their ideas of functionality.
+Lucas:	Maybe everybody could make test cases for their specific parts during development.
+Ethan:	It depends on the division of labour.
+Lucas:	I'll make sure that the group member who wasn't present for this meeting gets this abridged log to keep them up-to-date.
+Ethan:	Next week let's go to the shop, and discuss this with the staff.
