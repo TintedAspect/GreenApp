@@ -31,3 +31,9 @@ Unique
 Very simple and useable
 National grid API
 Social media (insta, Facebook, blog)
+
+12/11/19 Ethan and Sean
+looking at API's in whihc we could use
+openMaps (https://www.openstreetmap.org/#map=8/56.213/-4.455&layers=H)
+carbonIntesity (https://carbon-intensity.github.io/api-definitions/?javascript#carbon-intensity-api-v2-0-0)
+Trying to discuss layout, most likely going to be a multiple column layout using bootstrap
