@@ -12,29 +12,68 @@
         <h1>Grid API - How to use</h1>
     </header>
     <section class="row">
-        <div class="card col">
-            <img src="https://picsum.photos/200/300" class="card-img-top" alt="">
-            <div class="card-body">
-                <h5 class="card-title">Title</h5>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium alias accusantium temporibus inventore? Repellendus et, nulla sint unde soluta tempore quasi ipsum nemo, nostrum cumque accusantium est porro quo. Consequuntur.</p>
-            </div>
-        </div>
-        <div class="card col">
-            <img src="https://picsum.photos/200/300" class="card-img-top" alt="">
-            <div class="card-body">
-                <h5 class="card-title">Title</h5>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium alias accusantium temporibus inventore? Repellendus et, nulla sint unde soluta tempore quasi ipsum nemo, nostrum cumque accusantium est porro quo. Consequuntur.</p>
-            </div>
-        </div>
-        <div class="card col">
-            <img src="https://picsum.photos/200/300" class="card-img-top" alt="">
-            <div class="card-body">
-                <h5 class="card-title">Title</h5>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium alias accusantium temporibus inventore? Repellendus et, nulla sint unde soluta tempore quasi ipsum nemo, nostrum cumque accusantium est porro quo. Consequuntur.</p>
-            </div>
+        <div class="card-group" id="info">
+
         </div>
     </section>
+    <section class="">
+
+    </section>
 </body>
-<script src="">
+<script>
+    const url = "https://api.carbonintensity.org.uk/regional/scotland";
+    const infocontainer = document.getElementById('info')
+
+
+    function createNode(element) {
+        return document.createElement(element);
+      }
+      function append(parent, el) {
+        return parent.appendChild(el);
+      }
+
+
+        fetch(url)
+            .then((resp) => resp.json())
+            .then(function(info){
+                console.log(info);
+                let powerGen = info.data;
+                return powerGen.map(function(power){
+
+                    p = createNode('p');
+                    i = 0;
+                    while(i<9){
+                        switch(power.data[0].generationmix[i].fuel) {
+                            case "wind":
+                                powerTitle = power.data[0].generationmix[i].fuel;
+                                powerPercentage = power.data[0].generationmix[i].perc;
+                                console.log(powerTitle +" "+ powerPercentage);
+                            break;
+
+                            case "hydro":
+                                powerTitle = power.data[0].generationmix[i].fuel;
+                                powerPercentage = power.data[0].generationmix[i].perc;
+                                console.log(powerTitle +" "+ powerPercentage);
+
+                            break;
+
+                            case "solar":
+                                powerTitle = power.data[0].generationmix[i].fuel;
+                                powerPercentage = power.data[0].generationmix[i].perc;
+                                console.log(powerTitle +" "+ powerPercentage);
+                            break;
+
+                            default:
+                            // code block
+                        }
+                        i++;
+                    }
+
+            })
+        })
+     .catch(function(error) {
+      console.log(error);
+        });
+
 </script>
 </html>
