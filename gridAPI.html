@@ -13,10 +13,9 @@
     </header>
     <section class="row">
         <div class="card-group" id="info">
-
         </div>
     </section>
-    <section class="">
+    <section class="row">
 
     </section>
 </body>
@@ -51,7 +50,7 @@
                 while (i < 9) {
                     switch (power.data[0].generationmix[i].fuel) {
                         case "wind":
-                            img = "wind.jpg";
+                            img = "Images/wind.jpg";
                             powerTitle = "Wind";
                             powerPercentage = power.data[0].generationmix[i].perc;
                             console.log(powerTitle + " " + powerPercentage);
@@ -59,7 +58,7 @@
                             break;
 
                         case "hydro":
-                            img = "hydro.jpg";
+                            img = "Images/hydro.jpg";
                             powerTitle = "Hydro";
                             powerPercentage = power.data[0].generationmix[i].perc;
                             createCard(img, powerTitle, powerPercentage);
@@ -68,7 +67,7 @@
                             break;
 
                         case "solar":
-                            img = "solar.jpg";
+                            img = "Images/solar.jpg";
                             powerTitle = "Solar";
                             powerPercentage = power.data[0].generationmix[i].perc;
                             createCard(img, powerTitle, powerPercentage);
