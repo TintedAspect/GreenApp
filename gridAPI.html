@@ -27,53 +27,64 @@
 
     function createNode(element) {
         return document.createElement(element);
-      }
-      function append(parent, el) {
+    }
+
+    function append(parent, el) {
         return parent.appendChild(el);
-      }
+    }
 
+    function createCard(img, title, perc) {
+        div = createNode('div');
+        div.setAttribute('class', 'card col')
+        div.innerHTML = "<img class='card-img-top' src='" + img + "'><div class='card-body'><h5 class='card-title'>" + title + "</h5><p class='card-text'>" + perc + "%</p>";
+        append(info, div);
+    }
 
-        fetch(url)
-            .then((resp) => resp.json())
-            .then(function(info){
-                console.log(info);
-                let powerGen = info.data;
-                return powerGen.map(function(power){
+    fetch(url)
+        .then((resp) => resp.json())
+        .then(function(info) {
+            console.log(info);
+            let powerGen = info.data;
+            return powerGen.map(function(power) {
 
-                    p = createNode('p');
-                    i = 0;
-                    while(i<9){
-                        switch(power.data[0].generationmix[i].fuel) {
-                            case "wind":
-                                powerTitle = power.data[0].generationmix[i].fuel;
-                                powerPercentage = power.data[0].generationmix[i].perc;
-                                console.log(powerTitle +" "+ powerPercentage);
+                i = 0;
+                while (i < 9) {
+                    switch (power.data[0].generationmix[i].fuel) {
+                        case "wind":
+                            img = "wind.jpg";
+                            powerTitle = power.data[0].generationmix[i].fuel;
+                            powerPercentage = power.data[0].generationmix[i].perc;
+                            console.log(powerTitle + " " + powerPercentage);
+                            createCard(img, powerTitle, powerPercentage);
                             break;
 
-                            case "hydro":
-                                powerTitle = power.data[0].generationmix[i].fuel;
-                                powerPercentage = power.data[0].generationmix[i].perc;
-                                console.log(powerTitle +" "+ powerPercentage);
+                        case "hydro":
+                            img = "hydro.jpg";
+                            powerTitle = power.data[0].generationmix[i].fuel;
+                            powerPercentage = power.data[0].generationmix[i].perc;
+                            createCard(img, powerTitle, powerPercentage);
+                            console.log(powerTitle + " " + powerPercentage);
 
                             break;
 
-                            case "solar":
-                                powerTitle = power.data[0].generationmix[i].fuel;
-                                powerPercentage = power.data[0].generationmix[i].perc;
-                                console.log(powerTitle +" "+ powerPercentage);
+                        case "solar":
+                            img = "solar.jpg";
+                            powerTitle = power.data[0].generationmix[i].fuel;
+                            powerPercentage = power.data[0].generationmix[i].perc;
+                            createCard(img, powerTitle, powerPercentage);
+                            console.log(powerTitle + " " + powerPercentage);
                             break;
 
-                            default:
+                        default:
                             // code block
-                        }
-                        i++;
+
                     }
+                    i++;
+                }
 
             })
         })
-     .catch(function(error) {
-      console.log(error);
+        .catch(function(error) {
+            console.log(error);
         });
-
-</script>
-</html>
+</script></html>
