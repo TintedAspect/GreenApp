@@ -52,7 +52,7 @@
                     switch (power.data[0].generationmix[i].fuel) {
                         case "wind":
                             img = "wind.jpg";
-                            powerTitle = power.data[0].generationmix[i].fuel;
+                            powerTitle = "Wind";
                             powerPercentage = power.data[0].generationmix[i].perc;
                             console.log(powerTitle + " " + powerPercentage);
                             createCard(img, powerTitle, powerPercentage);
@@ -60,7 +60,7 @@
 
                         case "hydro":
                             img = "hydro.jpg";
-                            powerTitle = power.data[0].generationmix[i].fuel;
+                            powerTitle = "Hydro";
                             powerPercentage = power.data[0].generationmix[i].perc;
                             createCard(img, powerTitle, powerPercentage);
                             console.log(powerTitle + " " + powerPercentage);
@@ -69,7 +69,7 @@
 
                         case "solar":
                             img = "solar.jpg";
-                            powerTitle = power.data[0].generationmix[i].fuel;
+                            powerTitle = "Solar";
                             powerPercentage = power.data[0].generationmix[i].perc;
                             createCard(img, powerTitle, powerPercentage);
                             console.log(powerTitle + " " + powerPercentage);
