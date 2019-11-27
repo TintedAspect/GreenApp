@@ -1,0 +1,17 @@
+img{
+    max-width: 100%;
+    padding:0;
+    margin:0;
+}
+
+.card, .card-text{
+    margin:0;
+    padding:0;
+}
+
+.progress-bar, p{
+    padding:0;
+    margin:0;
+    font-size:105%;
+    font-weight: bold;
+}
