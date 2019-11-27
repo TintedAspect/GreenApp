@@ -17,12 +17,20 @@
         </div>
     </section>
     <section class="row">
+        <form class="form-inline col">
+            <div class="form-group">
+                <label for="search">Please enter postcode:</label>
+                <input class="form-control form-control-lg" type="text" placeholder="E.g EH13" id="search">
+                <button type="submit" class="btn btn-secondary">Search</button>
+            </div>
+        </form>
+        <div class="col" id="searchInfo">
 
+        </div>
     </section>
 </body>
 <script>
     const infocontainer = document.getElementById('info')
-
 
     function createNode(element) {
         return document.createElement(element);
