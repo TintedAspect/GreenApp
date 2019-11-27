@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Grid API</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="gridAPI.css">
 </head>
 
 <body class="container">
     <header class="row">
         <h1>Grid API - How to use</h1>
     </header>
-    <section class="row">
+    <section class="row" >
         <div class="card-group" id="info">
         </div>
     </section>
@@ -20,7 +21,6 @@
     </section>
 </body>
 <script>
-    const url = "https://api.carbonintensity.org.uk/regional/scotland";
     const infocontainer = document.getElementById('info')
 
 
@@ -35,11 +35,13 @@
     function createCard(img, title, perc) {
         div = createNode('div');
         div.setAttribute('class', 'card col')
-        div.innerHTML = "<img class='card-img-top' src='" + img + "'><div class='card-body'><h5 class='card-title'>" + title + "</h5><p class='card-text'>" + perc + "%</p>";
+        div.innerHTML = "<img class='card-img-top' src='" + img + "'><div class='card-body'><h5 class='card-title'>" + title + "</h5><div class='progress card-text'><div class='progress-bar bg-success text-dark' role='progressbar' style='width: "+perc+"%;' aria-valuenow='"+perc+"' aria-valuemin='0' aria-valuemax='100'><p>"+perc+"%</p></div></div>";
         append(info, div);
     }
 
-    fetch(url)
+    window.onload = function info(){
+        url = "https://api.carbonintensity.org.uk/regional/scotland";
+        fetch(url)
         .then((resp) => resp.json())
         .then(function(info) {
             console.log(info);
@@ -86,4 +88,5 @@
         .catch(function(error) {
             console.log(error);
         });
+    }
 </script></html>
