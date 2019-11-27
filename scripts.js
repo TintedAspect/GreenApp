@@ -1,3 +1,4 @@
+//Vue to fetch all the articles from the News Feed API.
 var news = new Vue({
   el: '#outer',
   data: {
@@ -23,6 +24,7 @@ var news = new Vue({
 
 })
 
+//Function to get a date that matches the required format in the API Fetch.
 function getDate() {
   var options = {year: 'numeric', month: 'numeric', day: 'numeric'};
   var date = new Date();
