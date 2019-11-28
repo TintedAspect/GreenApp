@@ -19,3 +19,7 @@ img{
     font-size:105%;
     font-weight: bold;
 }
+
+form *{
+    margin-right:5px;
+}
