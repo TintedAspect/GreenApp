@@ -7,14 +7,15 @@ var news = new Vue({
   created() {
     var vm = this
         axios.get('https://newsapi.org/v2/everything?' +
-          'q=sustainable-living|' +
-          'renewable|' +
-          'climate|' +
-          'environment|' +
-          'zero-emission|' +
-          'zero-waste&' +
+          'q="sustainable-living"&' +
+          'renewable&' +
+          'climate&' +
+          'environment&' +
+          '"zero-emission"&' +
+          '"zero-waste"&' +
+          'language=en&' +
           'from=' + getDate() + '&' +
-          'sortBy=popularity&' +
+          'sortBy=relevance&' +
           'apiKey=d292b50c7ef04e53846162db003c65d4')
           .then(function(response) {
             vm.articles = response.data.articles
