@@ -12,7 +12,7 @@
     <header class="row">
         <h1>Grid API - How to use</h1>
     </header>
-    <section class="row" >
+    <section class="row">
         <div class="card-group" id="info">
         </div>
     </section>
@@ -21,7 +21,7 @@
             <div class="form-group">
                 <label for="search">Please enter postcode:</label>
                 <input class="form-control form-control-lg" type="text" placeholder="E.g EH13" id="search">
-                <button type="submit" class="btn btn-secondary">Search</button>
+                <button type="submit" class="btn btn-secondary" onclick="searchPostCode()">Search</button>
             </div>
         </form>
         <div class="col" id="searchInfo">
@@ -43,58 +43,110 @@
     function createCard(img, title, perc) {
         div = createNode('div');
         div.setAttribute('class', 'card col')
-        div.innerHTML = "<img class='card-img-top' src='" + img + "'><div class='card-body'><h5 class='card-title'>" + title + "</h5><div class='progress card-text'><div class='progress-bar bg-success text-dark' role='progressbar' style='width: "+perc+"%;' aria-valuenow='"+perc+"' aria-valuemin='0' aria-valuemax='100'><p>"+perc+"%</p></div></div>";
+        div.innerHTML = "<img class='card-img-top' src='" + img + "'><div class='card-body'><h5 class='card-title'>" + title + "</h5><div class='progress card-text'><div class='progress-bar bg-success text-dark' role='progressbar' style='width: " + perc + "%;' aria-valuenow='" + perc + "' aria-valuemin='0' aria-valuemax='100'><p>" + perc + "%</p></div></div>";
         append(info, div);
     }
 
-    window.onload = function info(){
+    window.onload = function info() {
         url = "https://api.carbonintensity.org.uk/regional/scotland";
         fetch(url)
+            .then((resp) => resp.json())
+            .then(function(info) {
+                console.log(info);
+                let powerGen = info.data;
+                return powerGen.map(function(power) {
+                    i = 0;
+                    while (i < 9) {
+                        switch (power.data[0].generationmix[i].fuel) {
+                            case "wind":
+                                img = "Images/wind.jpg";
+                                powerTitle = "Wind";
+                                powerPercentage = power.data[0].generationmix[i].perc;
+                                console.log(powerTitle + " " + powerPercentage);
+                                createCard(img, powerTitle, powerPercentage);
+                                break;
+
+                            case "hydro":
+                                img = "Images/hydro.jpg";
+                                powerTitle = "Hydro";
+                                powerPercentage = power.data[0].generationmix[i].perc;
+                                createCard(img, powerTitle, powerPercentage);
+                                console.log(powerTitle + " " + powerPercentage);
+
+                                break;
+
+                            case "solar":
+                                img = "Images/solar.jpg";
+                                powerTitle = "Solar";
+                                powerPercentage = power.data[0].generationmix[i].perc;
+                                createCard(img, powerTitle, powerPercentage);
+                                console.log(powerTitle + " " + powerPercentage);
+                                break;
+
+                            default:
+                                // code block
+
+                        }
+                        i++;
+                    }
+
+                })
+            })
+            .catch(function(error) {
+                console.log(error);
+            });
+    }
+
+    var percentage = [];
+    var total = 0;
+    var maxVal = 0;
+    var from = "";
+    var to = "";
+    var date = new Date();
+    var d = date.getDate();
+    var y = date.getFullYear();
+    var m = date.getMonth();
+
+    document.getElementById("searchInfo").innerHTML = "";
+    searchString = document.getElementById("search").value;
+    url = "https://api.carbonintensity.org.uk/regional/intensity/" + y + "-" + m + "-" + d + "T12:00Z/fw48h/postcode/DD2";
+    console.log(url);
+    fetch(url)
         .then((resp) => resp.json())
         .then(function(info) {
-            console.log(info);
-            let powerGen = info.data;
-            return powerGen.map(function(power) {
-
+            let postcode = info.data.data;
+            return postcode.map(function(power) {
                 i = 0;
+
                 while (i < 9) {
-                    switch (power.data[0].generationmix[i].fuel) {
+                    total = 0;
+                    switch (power.generationmix[i].fuel) {
                         case "wind":
-                            img = "Images/wind.jpg";
-                            powerTitle = "Wind";
-                            powerPercentage = power.data[0].generationmix[i].perc;
-                            console.log(powerTitle + " " + powerPercentage);
-                            createCard(img, powerTitle, powerPercentage);
+                            total += power.generationmix[i].perc;
                             break;
-
                         case "hydro":
-                            img = "Images/hydro.jpg";
-                            powerTitle = "Hydro";
-                            powerPercentage = power.data[0].generationmix[i].perc;
-                            createCard(img, powerTitle, powerPercentage);
-                            console.log(powerTitle + " " + powerPercentage);
-
+                            total += power.generationmix[i].perc;
                             break;
-
                         case "solar":
-                            img = "Images/solar.jpg";
-                            powerTitle = "Solar";
-                            powerPercentage = power.data[0].generationmix[i].perc;
-                            createCard(img, powerTitle, powerPercentage);
-                            console.log(powerTitle + " " + powerPercentage);
+                            total += power.generationmix[i].perc;
                             break;
-
-                        default:
-                            // code block
 
                     }
+                    if (total > maxVal) {
+                        maxVal += total;
+                        from = power.from;
+                        to = power.to;
+                    }
+                    percentage.push(total);
                     i++;
                 }
-
+                console.log(maxVal);
+                console.log(from);
+                console.log(to);
             })
         })
         .catch(function(error) {
             console.log(error);
         });
-    }
-</script></html>
+</script>
+<script src="plotly.js"></script></html>
