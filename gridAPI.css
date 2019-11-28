@@ -10,7 +10,11 @@ img{
 }
 
 .card{
+<<<<<<< HEAD
     padding:5px;
+=======
+    padding: 5px;
+>>>>>>> origin/gridAPI
 }
 
 .progress-bar, p{
@@ -20,8 +24,18 @@ img{
     font-weight: bold;
 }
 
+<<<<<<< HEAD
 .form-group *{
     margin-left:5px;
     margin-top:5px;
 }
 
+=======
+form *{
+    margin-right:5px;
+}
+
+span{
+    font-weight:bold;
+}
+>>>>>>> origin/gridAPI

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,6 +17,7 @@
         <div class="card-group" id="info">
         </div>
     </section>
+<<<<<<< HEAD
     <section class="row">
         <form class="form-inline col">
             <div class="form-group">
@@ -25,6 +27,17 @@
             </div>
         </form>
         <div class="col" id="searchInfo">
+=======
+    <hr>
+    <section class="row form-inline">
+        <form class="form-group">
+            <label for="" class="form-label">Please enter your postcode</label>
+            <input type="text" class="form-control" placeholder="E.g. DD1" id="searchInfo">
+            <button type="button" class="btn btn-dark" id="searchBtn" onclick="search()">Search</button>
+        </form>
+    </section>
+    <section class="row" id="results">
+>>>>>>> origin/gridAPI
 
         </div>
     </section>
@@ -47,6 +60,16 @@
         append(info, div);
     }
 
+<<<<<<< HEAD
+=======
+    function createMedia(search, maxVal, from, to){
+        div2 = createNode('div');
+        div2.setAttribute('class', 'media');
+        div2.innerHTML = "<div class='media-body'><h5 class='mt-0'>"+search+"</h5>The best time to use your electricity is between "+from+" and "+to+" as this is when the most sutainable energy is being produced: <span>"+maxVal+"%</span></div>";
+        append(results, div2);
+    }
+
+>>>>>>> origin/gridAPI
     window.onload = function info() {
         url = "https://api.carbonintensity.org.uk/regional/scotland";
         fetch(url)
@@ -55,6 +78,10 @@
                 console.log(info);
                 let powerGen = info.data;
                 return powerGen.map(function(power) {
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/gridAPI
                     i = 0;
                     while (i < 9) {
                         switch (power.data[0].generationmix[i].fuel) {
@@ -82,10 +109,13 @@
                                 createCard(img, powerTitle, powerPercentage);
                                 console.log(powerTitle + " " + powerPercentage);
                                 break;
+<<<<<<< HEAD
 
                             default:
                                 // code block
 
+=======
+>>>>>>> origin/gridAPI
                         }
                         i++;
                     }
@@ -97,11 +127,19 @@
             });
     }
 
+<<<<<<< HEAD
     var percentage = [];
+=======
+    var date = new Date();
+    var d = date.getDate();
+    var m = date.getMonth();
+    var y = date.getFullYear();
+>>>>>>> origin/gridAPI
     var total = 0;
     var maxVal = 0;
     var from = "";
     var to = "";
+<<<<<<< HEAD
     var date = new Date();
     var d = date.getDate();
     var y = date.getFullYear();
@@ -150,3 +188,56 @@
         });
 </script>
 <script src="plotly.js"></script></html>
+=======
+
+    function search() {
+        index = 0
+        search = document.getElementById('searchInfo').value
+        url = "https://api.carbonintensity.org.uk/regional/intensity/" + y + "-" + m + "-" + d + "T12:00Z/fw24h/postcode/" + search;
+        console.log(url);
+        fetch(url)
+            .then((resp) => resp.json())
+            .then(function(info) {
+                let powerGen = info.data.data;
+                console.log(powerGen);
+                return powerGen.map(function(power) {
+                    console.log(power);
+                    i = 0;
+                    total = 0;
+                    while (i < 9) {
+                        switch (power.generationmix[i].fuel) {
+                            case "wind":
+                                total += power.generationmix[i].perc;
+                                break;
+
+                            case "hydro":
+                                total += power.generationmix[i].perc;
+                                break;
+
+                            case "solar":
+                                total += power.generationmix[i].perc;
+                                break;
+                        }
+                        i++;
+                    }
+
+                    index++;
+                    if(total > maxVal){
+                        maxVal = total;
+                        from = power.from;
+                        to = power.to;
+                    }
+                    if(index > 48){
+                       createMedia(search, maxVal, from, to);
+                    }
+                })
+            })
+            .catch(function(error) {
+                console.log(error);
+            });
+    }
+
+</script>
+
+</html>
+>>>>>>> origin/gridAPI
