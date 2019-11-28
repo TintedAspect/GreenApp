@@ -17,17 +17,7 @@
         <div class="card-group" id="info">
         </div>
     </section>
-<<<<<<< HEAD
-    <section class="row">
-        <form class="form-inline col">
-            <div class="form-group">
-                <label for="search">Please enter postcode:</label>
-                <input class="form-control form-control-lg" type="text" placeholder="E.g EH13" id="search">
-                <button type="submit" class="btn btn-secondary" onclick="searchPostCode()">Search</button>
-            </div>
-        </form>
-        <div class="col" id="searchInfo">
-=======
+
     <hr>
     <section class="row form-inline">
         <form class="form-group">
@@ -37,10 +27,11 @@
         </form>
     </section>
     <section class="row" id="results">
->>>>>>> origin/gridAPI
+        <div class="col" id="searchInfo">
 
         </div>
     </section>
+
 </body>
 <script>
     const infocontainer = document.getElementById('info')
@@ -60,8 +51,7 @@
         append(info, div);
     }
 
-<<<<<<< HEAD
-=======
+
     function createMedia(search, maxVal, from, to){
         div2 = createNode('div');
         div2.setAttribute('class', 'media');
@@ -69,7 +59,7 @@
         append(results, div2);
     }
 
->>>>>>> origin/gridAPI
+
     window.onload = function info() {
         url = "https://api.carbonintensity.org.uk/regional/scotland";
         fetch(url)
@@ -78,10 +68,7 @@
                 console.log(info);
                 let powerGen = info.data;
                 return powerGen.map(function(power) {
-<<<<<<< HEAD
-=======
 
->>>>>>> origin/gridAPI
                     i = 0;
                     while (i < 9) {
                         switch (power.data[0].generationmix[i].fuel) {
@@ -109,13 +96,7 @@
                                 createCard(img, powerTitle, powerPercentage);
                                 console.log(powerTitle + " " + powerPercentage);
                                 break;
-<<<<<<< HEAD
 
-                            default:
-                                // code block
-
-=======
->>>>>>> origin/gridAPI
                         }
                         i++;
                     }
@@ -127,68 +108,15 @@
             });
     }
 
-<<<<<<< HEAD
-    var percentage = [];
-=======
     var date = new Date();
     var d = date.getDate();
     var m = date.getMonth();
     var y = date.getFullYear();
->>>>>>> origin/gridAPI
+
     var total = 0;
     var maxVal = 0;
     var from = "";
     var to = "";
-<<<<<<< HEAD
-    var date = new Date();
-    var d = date.getDate();
-    var y = date.getFullYear();
-    var m = date.getMonth();
-
-    document.getElementById("searchInfo").innerHTML = "";
-    searchString = document.getElementById("search").value;
-    url = "https://api.carbonintensity.org.uk/regional/intensity/" + y + "-" + m + "-" + d + "T12:00Z/fw48h/postcode/DD2";
-    console.log(url);
-    fetch(url)
-        .then((resp) => resp.json())
-        .then(function(info) {
-            let postcode = info.data.data;
-            return postcode.map(function(power) {
-                i = 0;
-
-                while (i < 9) {
-                    total = 0;
-                    switch (power.generationmix[i].fuel) {
-                        case "wind":
-                            total += power.generationmix[i].perc;
-                            break;
-                        case "hydro":
-                            total += power.generationmix[i].perc;
-                            break;
-                        case "solar":
-                            total += power.generationmix[i].perc;
-                            break;
-
-                    }
-                    if (total > maxVal) {
-                        maxVal += total;
-                        from = power.from;
-                        to = power.to;
-                    }
-                    percentage.push(total);
-                    i++;
-                }
-                console.log(maxVal);
-                console.log(from);
-                console.log(to);
-            })
-        })
-        .catch(function(error) {
-            console.log(error);
-        });
-</script>
-<script src="plotly.js"></script></html>
-=======
 
     function search() {
         index = 0
@@ -240,4 +168,4 @@
 </script>
 
 </html>
->>>>>>> origin/gridAPI
+
