@@ -17,12 +17,16 @@
         <div class="card-group" id="info">
         </div>
     </section>
+    <hr>
     <section class="row form-inline">
         <form class="form-group">
             <label for="" class="form-label">Please enter your postcode</label>
             <input type="text" class="form-control" placeholder="E.g. DD1" id="searchInfo">
             <button type="button" class="btn btn-dark" id="searchBtn" onclick="search()">Search</button>
         </form>
+    </section>
+    <section class="row" id="results">
+
     </section>
 </body>
 <script>
@@ -42,6 +46,13 @@
         div.setAttribute('class', 'card col')
         div.innerHTML = "<img class='card-img-top' src='" + img + "'><div class='card-body'><h5 class='card-title'>" + title + "</h5><div class='progress card-text'><div class='progress-bar bg-success text-dark' role='progressbar' style='width: " + perc + "%;' aria-valuenow='" + perc + "' aria-valuemin='0' aria-valuemax='100'><p>" + perc + "%</p></div></div>";
         append(info, div);
+    }
+
+    function createMedia(search, maxVal, from, to){
+        div2 = createNode('div');
+        div2.setAttribute('class', 'media');
+        div2.innerHTML = "<div class='media-body'><h5 class='mt-0'>"+search+"</h5>The best time to use your electricity is between "+from+" and "+to+" as this is when the most sutainable energy is being produced: <span>"+maxVal+"%</span></div>";
+        append(results, div2);
     }
 
     window.onload = function info() {
@@ -99,7 +110,9 @@
     var maxVal = 0;
     var from = "";
     var to = "";
+
     function search() {
+        index = 0
         search = document.getElementById('searchInfo').value
         url = "https://api.carbonintensity.org.uk/regional/intensity/" + y + "-" + m + "-" + d + "T12:00Z/fw24h/postcode/" + search;
         console.log(url);
@@ -128,10 +141,15 @@
                         }
                         i++;
                     }
+
+                    index++;
                     if(total > maxVal){
                         maxVal = total;
                         from = power.from;
                         to = power.to;
+                    }
+                    if(index > 48){
+                       createMedia(search, maxVal, from, to);
                     }
                 })
             })

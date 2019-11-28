@@ -23,3 +23,7 @@ img{
 form *{
     margin-right:5px;
 }
+
+span{
+    font-weight:bold;
+}
