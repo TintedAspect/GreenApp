@@ -15,7 +15,7 @@ var news = new Vue({
           '"zero-waste"&' +
           'language=en&' +
           'from=' + getDate() + '&' +
-          'sortBy=relevance&' +
+          'sortBy=popularity&' +
           'apiKey=d292b50c7ef04e53846162db003c65d4')
           .then(function(response) {
             vm.articles = response.data.articles
