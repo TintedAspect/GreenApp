@@ -7,6 +7,7 @@
     <title>Grid API</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="gridAPI.css">
+    <script href="gridAPI.json"></script>
 </head>
 
 <body class="container">
@@ -14,17 +15,20 @@
         <h1>Grid API - How to use</h1>
     </header>
     <section class="row">
-        <div class="card-group" id="info">
+       <h2>Automatic Data (onload)</h2>
+        <div class="card-group" id="info" onload="info()">
         </div>
     </section>
 
     <hr>
-    <section class="row form-inline" id="searchForm">
-        <form class="form-groupcol">
-            <label for="" class="form-label">Please enter your postcode</label>
+    <section class="form-inline">
+        <form class="form-group col" id="searchForm">
+            <label for="" class="form-label">Please enter your postcode:</label>
             <input type="text" class="form-control" placeholder="E.g. DD1" id="searchInfo">
-            <button type="button" class="btn btn-dark" id="searchBtn" onclick="searchResult();">Search</button>
-            <button type="button" class="btn btn-dark" id="clearhBtn" onclick="clearResult();">Clear</button>
+            <div id="serachButtons">
+                <button type="button" class="btn btn-dark" id="searchBtn" onclick="searchResult();">Search</button>
+                <button type="button" class="btn btn-dark" id="clearhBtn" onclick="clearResult();">Clear</button>
+            </div>
         </form>
         <div class="col" id="results">
 
@@ -32,147 +36,7 @@
     </section>
 
 </body>
-<script>
-    const infocontainer = document.getElementById('info')
-
-    function createNode(element) {
-        return document.createElement(element);
-    }
-
-    function append(parent, el) {
-        return parent.appendChild(el);
-    }
-
-    function createCard(img, title, perc) {
-        div = createNode('div');
-        div.setAttribute('class', 'card col')
-        div.innerHTML = "<img class='card-img-top' src='" + img + "'><div class='card-body'><h5 class='card-title'>" + title + "</h5><div class='progress card-text'><div class='progress-bar bg-success text-dark' role='progressbar' style='width: " + perc + "%;' aria-valuenow='" + perc + "' aria-valuemin='0' aria-valuemax='100'><p>" + perc + "%</p></div></div>";
-        append(info, div);
-    }
-
-
-    function createMedia(search, maxVal, from, to){
-        div2 = createNode('div');
-        div2.setAttribute('class', 'media');
-        div2.innerHTML = "<div class='media-body'><h5 class='mt-0'>"+search+"</h5>The best time to use your electricity is between <span>"+from.slice(11,16)+" and "+to.slice(11,16)+"</span> as this is when the most sutainable energy is being produced: <span>"+maxVal+"%</span></div>";
-        append(results, div2);
-    }
-
-
-    window.onload = function info() {
-        url = "https://api.carbonintensity.org.uk/regional/scotland";
-        fetch(url)
-            .then((resp) => resp.json())
-            .then(function(info) {
-                console.log(info);
-                let powerGen = info.data;
-                return powerGen.map(function(power) {
-
-                    i = 0;
-                    while (i < 9) {
-                        switch (power.data[0].generationmix[i].fuel) {
-                            case "wind":
-                                img = "Images/wind.jpg";
-                                powerTitle = "Wind";
-                                powerPercentage = power.data[0].generationmix[i].perc;
-                                console.log(powerTitle + " " + powerPercentage);
-                                createCard(img, powerTitle, powerPercentage);
-                                break;
-
-                            case "hydro":
-                                img = "Images/hydro.jpg";
-                                powerTitle = "Hydro";
-                                powerPercentage = power.data[0].generationmix[i].perc;
-                                createCard(img, powerTitle, powerPercentage);
-                                console.log(powerTitle + " " + powerPercentage);
-
-                                break;
-
-                            case "solar":
-                                img = "Images/solar.jpg";
-                                powerTitle = "Solar";
-                                powerPercentage = power.data[0].generationmix[i].perc;
-                                createCard(img, powerTitle, powerPercentage);
-                                console.log(powerTitle + " " + powerPercentage);
-                                break;
-
-                        }
-                        i++;
-                    }
-
-                })
-            })
-            .catch(function(error) {
-                console.log(error);
-            });
-    }
-
-    var date = new Date();
-    var d = date.getDate();
-    var m = date.getMonth() + 1;
-    var y = date.getFullYear();
-
-    var total = 0;
-    var maxVal = 0;
-    var from = "";
-    var to = "";
-
-function searchResult() {
-        index = 0
-        total = 0;
-        maxVal = 0;
-        from = "";
-        to = "";
-
-        search = document.getElementById('searchInfo').value
-        url = "https://api.carbonintensity.org.uk/regional/intensity/" + y + "-" + m + "-" + d + "T00:00Z/fw24h/postcode/" + search;
-        console.log(url);
-        fetch(url)
-            .then((resp) => resp.json())
-            .then(function(info) {
-                let powerGen = info.data.data;
-                console.log(powerGen);
-                return powerGen.map(function(power) {
-                    console.log(power);
-                    i = 0;
-                    total = 0;
-                    while (i < 9) {
-                        switch (power.generationmix[i].fuel) {
-                            case "wind":
-                                total += power.generationmix[i].perc;
-                                break;
-
-                            case "hydro":
-                                total += power.generationmix[i].perc;
-                                break;
-
-                            case "solar":
-                                total += power.generationmix[i].perc;
-                                break;
-                        }
-                        i++;
-                    }
-
-                    index++;
-                    if(total > maxVal){
-                        maxVal = total;
-                        from = power.from;
-                        to = power.to;
-                    }
-                    if(index > 48){
-                       createMedia(search, maxVal, from, to);
-                    }
-                })
-            })
-            .catch(function(error) {
-                console.log(error);
-            });
-    }
-    function clearResult(){
-        document.getElementById("results").innerHTML = "";
-    }
-
-</script>
-
+    <script src="gridAPI.js">
+    </script>
 </html>
 
