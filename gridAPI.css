@@ -21,18 +21,15 @@ img{
 }
 
 
-form *{
-    margin-right:5px;
-}
-
 span{
     font-weight:bold;
 }
 
-#results{
-    max-width:50%;
+#searchForm *{
+    margin-right:5px;
+    text-align:center;
 }
 
-#searchForm *{
-    margin:auto;
+#searchForm input{
+    text-align:left;
 }
