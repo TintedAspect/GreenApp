@@ -29,3 +29,10 @@ span{
     font-weight:bold;
 }
 
+#results{
+    max-width:50%;
+}
+
+#searchForm *{
+    margin:auto;
+}
