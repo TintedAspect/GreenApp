@@ -20,7 +20,56 @@
         <img src="lgl.png" alt="">
         <h1 class="Title">Little Green App</h1>
 
-    </header>
+    <img src="lgl.png" alt="">
+    <h1 class="Title">Little Green App</h1>
+
+  </header>
+
+  <nav id="menu "class="navbar navbar-expand-lg navbar-light bg-custom">
+    <button class="navbar-toggler" type="button" onclick="hideElem()" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse d-flex justify-content-center" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link disabled" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contact Us</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Information and News Feed Api -->
+  <div class="container">
+    <div class="row">
+
+      <div class="col-sm">
+        <h2 class="SubTitle"> About </h2>
+        <p>add in about text here</p>
+      </div>
+
+      <div class="col-sm">
+        <h2>News Feed</h2>
+        <iframe src="newsfeed.html" class="feed"></iframe>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Grid Api Section -->
+  <div class="container">
+
+    <h2 class="SubTitle"> Optimize Your Power Usage </h2>
+
+    <section class="row">
+        <div class="card-group" id="info" onload="info()">
+        </div>
+    </section>
     <nav id="menu " class="navbar navbar-expand-lg navbar-light bg-custom">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -87,7 +136,22 @@
         <p>© 2019 Group 6 Project</p>
 
     </footer>
-
+    </div>
 </body>
+<script type="text/javascript">
+function hideElem() {
+
+  var el = document.getElementsByClassName("collapse");
+  var x = el[0];
+  if (x.style.visibility === "hidden" || x.style.visibility === "none") {
+    x.style.visibility = "visible";
+    x.style.height = null;
+  }
+  else {
+    x.style.visibility = "hidden";
+    x.style.height = 0;
+  }
+}
+</script>
 
 </html>
