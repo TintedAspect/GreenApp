@@ -1,5 +1,19 @@
 /* This is the main css page for the little green app*/
 
+:root{
+  --bg: #c3b091;
+  --font: #000;
+  --box: #808080;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root{
+    --bg: #000080;
+    --box: #004040;
+    --font: #c0c0c0;
+  }
+}
+
 .footer{
 
 border-top: 1px solid #253237;
