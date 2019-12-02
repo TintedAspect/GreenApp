@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid API</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="gridAPI.css">
+    <script href="gridAPI.json"></script>
+</head>
+
+<body class="container">
+    <header class="row">
+        <h1>Grid API - How to use</h1>
+    </header>
+    <section class="row">
+       <h2>Automatic Data (onload)</h2>
+        <div class="card-group" id="info" onload="info()">
+        </div>
+    </section>
+
+    <hr>
+    <section class="form-inline">
+        <form class="form-group col" id="searchForm">
+            <label for="" class="form-label">Please enter your postcode:</label>
+            <input type="text" class="form-control" placeholder="E.g. DD1" id="searchInfo">
+            <div id="serachButtons">
+                <button type="button" class="btn btn-dark" id="searchBtn" onclick="searchResult();">Search</button>
+                <button type="button" class="btn btn-dark" id="clearhBtn" onclick="clearResult();">Clear</button>
+            </div>
+        </form>
+        <div class="col" id="results">
+
+        </div>
+    </section>
+
+</body>
+    <script src="gridAPI.js">
+    </script>
+</html>
+
