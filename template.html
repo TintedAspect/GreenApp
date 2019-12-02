@@ -8,8 +8,9 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <script src="gridAPI/gridAPI.js"></script>
   <link rel="stylesheet" href="main.css">
-
+  <link rel="stylesheet" href="gridAPI/gridAPI.css">
 </head>
 
 <body class="body">
@@ -62,40 +63,25 @@
 
     <h2 class="SubTitle"> Optimize Your Power Usage </h2>
 
-    <div class=" row">
-      <div class="col-sm">
-        <div class="card" style="width:200px">
-          <img class="card-img-top" src="img_avatar1.png" alt="Card image">
-          <div class="card-body">
-            <h4 class="card-title">John Doe</h4>
-            <p class="card-text">Some example text.</p>
-            <a href="#" class="btn btn-primary">See Profile</a>
-          </div>
+    <section class="row">
+        <div class="card-group" id="info" onload="info()">
         </div>
-      </div>
+    </section>
 
-      <div class="col-sm">
-        <div class="card" style="width:200px">
-          <img class="card-img-top" src="img_avatar1.png" alt="Card image">
-          <div class="card-body">
-            <h4 class="card-title">John Doe</h4>
-            <p class="card-text">Some example text.</p>
-            <a href="#" class="btn btn-primary">See Profile</a>
-          </div>
-        </div>
-      </div>
+    <hr>
+    <section class="form-inline">
+        <form class="form-group col" id="searchForm">
+            <label for="" class="form-label">Please enter your postcode:</label>
+            <input type="text" class="form-control" placeholder="E.g. DD1" id="searchInfo">
+            <div id="serachButtons">
+                <button type="button" class="btn btn-dark" id="searchBtn" onclick="searchResult();">Search</button>
+                <button type="button" class="btn btn-dark" id="clearhBtn" onclick="clearResult();">Clear</button>
+            </div>
+        </form>
+        <div class="col" id="results">
 
-      <div class="col-sm">
-        <div class="card" style="width:200px">
-          <img class="card-img-top" src="img_avatar1.png" alt="Card image">
-          <div class="card-body">
-            <h4 class="card-title">John Doe</h4>
-            <p class="card-text">Some example text.</p>
-            <a href="#" class="btn btn-primary">See Profile</a>
-          </div>
         </div>
-      </div>
-    </div>
+    </section>
   </div>
 
   <footer class="footer">

@@ -33,3 +33,12 @@ span{
 #searchForm input{
     text-align:left;
 }
+
+#results{
+   max-width:50%;
+    text-align: left;
+}
+
+#searchForm{
+    max-width: 50%;
+}
