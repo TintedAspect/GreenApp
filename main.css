@@ -13,7 +13,6 @@ font-size: 10px;
 .container{
 
   border-top: 1px solid #253237;
-  align-items: center;
   text-align: center;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -43,12 +42,6 @@ header{
 .bg-custom{
 
 background-color: #589974;
-
-}
-
-.col-ms{
-
-text-align: center;
 
 }
 
