@@ -1,0 +1,35 @@
+img{
+    max-width: 100%;
+    padding:0;
+    margin:0;
+}
+
+.card, .card-text{
+    margin:0;
+    padding:0;
+}
+
+.card{
+    padding:5px;
+}
+
+.progress-bar, p{
+    padding:0;
+    margin:0;
+    font-size:105%;
+    font-weight: bold;
+}
+
+
+span{
+    font-weight:bold;
+}
+
+#searchForm *{
+    margin-right:5px;
+    text-align:center;
+}
+
+#searchForm input{
+    text-align:left;
+}
