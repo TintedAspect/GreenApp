@@ -75,6 +75,10 @@
     var m = date.getMonth() + 1;
     var y = date.getFullYear();
 
+    if(d < 10){
+        d = "0" + date.getDate();
+    }
+
     var total = 0;
     var maxVal = 0;
     var from = "";
