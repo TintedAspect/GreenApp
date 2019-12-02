@@ -22,7 +22,7 @@
   </header>
 
   <nav id="menu "class="navbar navbar-expand-lg navbar-light bg-custom">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" onclick="hideElem()" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse d-flex justify-content-center" id="navbarNav">
@@ -108,5 +108,20 @@
   </footer>
 
 </body>
+<script type="text/javascript">
+function hideElem() {
+
+  var el = document.getElementsByClassName("collapse");
+  var x = el[0];
+  if (x.style.visibility === "hidden" || x.style.visibility === "none") {
+    x.style.visibility = "visible";
+    x.style.height = null;
+  }
+  else {
+    x.style.visibility = "hidden";
+    x.style.height = 0;
+  }
+}
+</script>
 
 </html>
