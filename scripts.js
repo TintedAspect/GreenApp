@@ -35,6 +35,5 @@ function getDate() {
   date = date.toLocaleDateString("ko-KR", options).replace(/. /g, "-");
   var len = date.length;
   date = date.slice(0, (len-1));
-  console.log(date);
   return date;
 }
