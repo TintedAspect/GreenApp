@@ -51,3 +51,8 @@ background-color: #589974;
 text-align: center;
 
 }
+
+.feed {
+  border: 0px;
+  border-radius: 5px;
+}
