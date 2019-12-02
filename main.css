@@ -1,62 +1,59 @@
 /* This is the main css page for the little green app*/
-
-:root{
+:root {
   --bg: #c3b091;
+  --body: #e8edf2;
   --font: #000;
-  --box: #808080;
+  --box: #589974;
+  --footer-bg: #c5c3c6;
+  --border: #253237;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root{
-    --bg: #000080;
-    --box: #004040;
-    --font: #c0c0c0;
+  :root {
+    --bg: #090B09;
+    --body: #0F1214;
+    --box: #1B2322;
+    --font: #BDBEBE;
+    --footer-bg: #121313;
   }
 }
 
-.footer{
-
-border-top: 1px solid #253237;
-padding-top: 10px;
-background-color: #c5c3c6;
-max-width: auto;
-font-size: 10px;
-
+.footer {
+  border-top: 1px solid var(--border);
+  padding-top: 10px;
+  background-color: var(--footer-bg);
+  max-width: auto;
+  font-size: 10px;
 }
 
-.container{
-
-  border-top: 1px solid #253237;
+.container {
+  border-top: 1px solid var(--border);
   text-align: center;
   padding-top: 10px;
   padding-bottom: 10px;
   margin-top: 20px;
-
 }
 
-.card{
-
+.card {
   text-align: left;
-
 }
 
-.body{
-
-background-color: #e8edf2;
-
+.body {
+  background-color: var(--body);
+  color: var(--font);
 }
 
-header{
-
+header {
   align-items: center;
   text-align: center;
-
 }
 
-.bg-custom{
+.bg-custom {
+  background-color: var(--box);
+}
 
-background-color: #589974;
-
+.link {
+  color: var(--font);
 }
 
 .feed {
