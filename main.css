@@ -3,10 +3,11 @@
 .footer{
 
 border-top: 1px solid #253237;
-padding-top: 10px;
+padding: 10px;
 background-color: #c5c3c6;
 max-width: auto;
 font-size: 10px;
+text-align: center;
 
 }
 
