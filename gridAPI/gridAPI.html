@@ -7,7 +7,8 @@
     <title>Grid API</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="gridAPI.css">
-    <script href="gridAPI.json"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script href="gridAPI.js"></script>
 </head>
 
 <body class="container">
@@ -28,11 +29,13 @@
             <div id="serachButtons">
                 <button type="button" class="btn btn-dark" id="searchBtn" onclick="searchResult();">Search</button>
                 <button type="button" class="btn btn-dark" id="clearhBtn" onclick="clearResult();">Clear</button>
+                <button type="button" class="btn btn-dark" id="clearhBtn" onclick="drawChart();">Draw Chart</button>
             </div>
         </form>
         <div class="col" id="results">
 
         </div>
+        <div id="chart_div" style="width: 100%; height: 500px;"></div>
     </section>
 
 </body>
