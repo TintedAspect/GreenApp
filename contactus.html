@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+
+    <meta charset="utf-8">
+    <title>Little Green App</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="CSS/main.css">
+    <link rel="stylesheet" href="CSS/gridAPI.css">
+</head>
+
+<body class="body">
+
+    <header>
+
+        <img src="Images/lgl.png" alt="">
+        <h1 class="Title">Little Green App</h1>
+
+    </header>
+
+    <nav id="menu" class="navbar navbar-expand-lg navbar-light bg-custom">
+        <button class="navbar-toggler" type="button" onclick="hideElem()" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse d-flex justify-content-center" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="index.html">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">About/Contact Us</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Information and News Feed Api -->
+    <section class="container">
+        <div class="row">
+            <article class="col-sm">
+                <h2>About The Little Green Larder</h2>
+                <p>The Little Green Larder is an independent retailer that wants to make a difference
+                    to the world, therefore Jillian opened the first zero waste / ecofriendly shop in
+                    Dundee by trying to encourage people to reduce carbon footprints and the waste of plastic.</p>
+                <br>
+                <p>
+                    The shop offers a wide range of eco-friendly products such as plastic free
+                    toiletries, cleaning supplies, beauty products, dried food, whole food, fresh food
+                    and snacks along with eco friendly alternatives for everyday items.
+                </p>
+            </article>
+            <article class="col-sm">
+                <p>The Little Green Larder is an independent retailer that wants to make a difference
+                    to the world, therefore Jillian opened the first zero waste / ecofriendly shop in
+                    Dundee by trying to encourage people to reduce carbon footprints and the waste of plastic.</p>
+                <br>
+                <p>
+                    The shop offers a wide range of eco-friendly products such as plastic free
+                    toiletries, cleaning supplies, beauty products, dried food, whole food, fresh food
+                    and snacks along with eco friendly alternatives for everyday items.
+                </p>
+            </article>
+        </div>
+        <hr>
+        <div class="row">
+            <article class="col-sm">
+                <p>
+                    Customers can take in their own glass jars and re-use plastic bottles to fill-up on
+                    cleaning materials which are dispensed from plastic pumps, offering a wide range
+                    of packaging free products such as free-range eggs, flour and oil.
+                </p>
+                <p>
+
+                    The shop has been mentioned multiple times on different newspapers as one of
+                    the leading green shop in Dundee and Scotland.
+                </p>
+            </article>
+            <article class="col-sm">
+                <img src="Images/LittleGreenShop.jpg" alt="Little Green Larder Shop" id="shop">
+            </article>
+        </div>
+    </section>
+
+    <section class="container">
+        <h2>Contact Us</h2>
+        <div class="row">
+            <article class="col-sm">
+                <h3>Contact Info</h3>
+                <p>Telephone Number: N/A</p>
+                <br>
+                <p>Address:</p>
+                <p>Little Green Larder</p>
+                <p>272 Perth Rd</p>
+                <p>Dundee DD2 1AE</p>
+                <br>
+            </article>
+            <article class="col-sm">
+                <h3>Store Information</h3>
+                <p>Opening Times:</p>
+                <p>Monday: 10am - 6pm</p>
+                <p>Tuesday: 10am - 6pm</p>
+                <p>Wednesday: 10am - 6pm</p>
+                <p>Thursday: 4pm - 7pm</p>
+                <p>Friday: 10am - 6pm</p>
+                <p>Saturday: 9am - 5pm</p>
+                <p>Sunday: 11am - 2pm</p>
+            </article>
+        </div>
+    </section>
+    <footer class="footer">
+
+        <p>Little Green Larder</p>
+        <p>272 Perth Rd</p>
+        <p>Dundee DD2 1AE</p>
+        <p>© 2019 Group 6 Project</p>
+
+    </footer>
+    <script>
+        function hideElem() {
+
+            var el = document.getElementsByClassName("collapse");
+            var x = el[0];
+            if (x.style.visibility === "hidden" || x.style.visibility === "none") {
+                x.style.visibility = "visible";
+                x.style.height = null;
+            } else {
+                x.style.visibility = "hidden";
+                x.style.height = 0;
+            }
+        }
+    </script>
+</body></html>
