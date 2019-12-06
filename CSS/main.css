@@ -51,3 +51,8 @@ background-color: #589974;
   border-radius: 5px;
   height: 25rem;
 }
+
+#shop{
+    max-width: 90%;
+    border:5px solid #253237;
+}
