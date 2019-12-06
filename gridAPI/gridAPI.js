@@ -10,7 +10,7 @@
     function createCard(img, title, perc) {
         div = createNode('div');
         div.setAttribute('class', 'card')
-        div.innerHTML = "<img class='card-img-top' src='" + img + "'><div class='card-body'><h5 class='card-title'>" + title + "</h5><div class='progress card-text'><div class='progress-bar bg-success text-dark' role='progressbar' style='width: " + perc + "%;' aria-valuenow='" + perc + "' aria-valuemin='0' aria-valuemax='100'></div></div><p>" + perc + "%</p>";
+        div.innerHTML = "<img class='card-img-top' src='" + img + "' alt='" + title + "'><div class='card-body'><h5 class='card-title'>" + title + "</h5><div class='progress card-text'><div class='progress-bar bg-success text-dark' role='progressbar' style='width: " + perc + "%;' aria-valuenow='" + perc + "' aria-valuemin='0' aria-valuemax='100'></div></div><p>" + perc + "%</p>";
         append(info, div);
     }
 
