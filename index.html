@@ -18,47 +18,46 @@
 
     <header>
 
-    <img src="lgl.png" alt="">
-    <h1 class="Title">Little Green App</h1>
+        <img src="lgl.png" alt="">
+        <h1 class="Title">Little Green App</h1>
 
-  </header>
+    </header>
 
-  <nav id="menu" class="navbar navbar-expand-lg navbar-light bg-custom">
-    <button class="navbar-toggler" type="button" onclick="hideElem()" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse d-flex justify-content-center" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item active">
-          <a class="nav-link disabled" href="#">Home <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">About</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Contact Us</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
+    <nav id="menu" class="navbar navbar-expand-lg navbar-light bg-custom">
+        <button class="navbar-toggler" type="button" onclick="hideElem()" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse d-flex justify-content-center" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link disabled" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About/Contact Us</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
 
-  <!-- Information and News Feed Api -->
-  <div class="container">
-    <div class="row">
+    <!-- Information and News Feed Api -->
+    <div class="container">
+        <div class="row">
 
-      <div class="col-sm">
-        <h2 class="SubTitle"> About </h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-      </div>
+            <div class="col-sm">
+                <h2 class="SubTitle"> About </h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <br>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea nemo cumque quam possimus, dolorem necessitatibus? Tempore provident quo eos excepturi molestiae libero optio deserunt qui consequuntur, omnis commodi, dignissimos nemo. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum dicta maiores dolorem hic dignissimos exercitationem fuga quisquam quam iure excepturi. Velit iusto minima enim fugiat adipisci aperiam vero earum aut.</p>
+            </div>
 
-      <div class="col-sm">
-        <h2>News Feed</h2>
-        <iframe src="newsfeed.html" class="feed"></iframe>
-      </div>
+            <div class="col-sm">
+                <h2>News Feed</h2>
+                <iframe src="newsfeed.html" class="feed"></iframe>
+            </div>
 
-    </div>
+        </div>
 
-  <!-- Grid Api Section -->
+        <!-- Grid Api Section -->
 
 
 
@@ -99,19 +98,17 @@
 
     </footer>
     <script>
-    function hideElem() {
+        function hideElem() {
 
-      var el = document.getElementsByClassName("collapse");
-      var x = el[0];
-      if (x.style.visibility === "hidden" || x.style.visibility === "none") {
-        x.style.visibility = "visible";
-        x.style.height = null;
-      }
-      else {
-        x.style.visibility = "hidden";
-        x.style.height = 0;
-      }
-    }
+            var el = document.getElementsByClassName("collapse");
+            var x = el[0];
+            if (x.style.visibility === "hidden" || x.style.visibility === "none") {
+                x.style.visibility = "visible";
+                x.style.height = null;
+            } else {
+                x.style.visibility = "hidden";
+                x.style.height = 0;
+            }
+        }
     </script>
-</body>
-</html>
+</body></html>
