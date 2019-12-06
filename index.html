@@ -6,9 +6,9 @@
     <meta charset="utf-8">
     <title>Little Green App</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script src="gridAPI/gridAPI.js"></script>
     <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="gridAPI/gridAPI.css">
@@ -68,7 +68,7 @@
         <div class="row">
             <section class="col-sm">
                 <h2 class="SubTitle"> Optimize Your Power Usage </h2>
-                <div class="card-group" id="info" onload="info()">
+                <div class="card-deck" id="info" onload="info()">
                 </div>
             </section>
         </div>
@@ -81,13 +81,14 @@
                 <div id="serachButtons">
                     <button type="button" class="btn btn-dark" id="searchBtn" onclick="searchResult();">Search</button>
                     <button type="button" class="btn btn-dark" id="clearhBtn" onclick="clearResult();">Clear</button>
+                    <button type="button" class="btn btn-dark" id="clearhBtn" onclick="drawChart();">Draw Chart</button>
                 </div>
             </form>
             <div class="col-sm" id="results">
 
             </div>
-            <div id="row chart_div" style="width: 100%; height: 500px;"></div>
         </section>
+        <div class="row" id="chart_div" style="height:400px;max-width:100%; margin:auto;"></div>
     </div>
     <footer class="footer">
 
